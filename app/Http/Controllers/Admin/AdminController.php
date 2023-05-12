@@ -2,15 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function AdminDashboard()
     {
-        return view('admin.admin_deshboard');
+        return view('backend.admin.admin_dashboard');
     } // End Method
+
+    public function AdminLogin(){
+        return view('backend.admin.admin_login');
+    } // End Mehtod
+
+
+public function AdminDestroy(Request $request){
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/admin/login');
+    } // End Mehtod
 
     /**
      * Display a listing of the resource.
