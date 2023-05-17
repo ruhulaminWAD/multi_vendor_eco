@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('backend.admin.layouts.master')
 
 {{-- Page Title --}}
 @section('page_title', 'Admin Change Password')
@@ -36,7 +36,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <form method="post" action="{{ route('update.password') }}"  >
+                                <form method="post" action="{{ route('admin.update.password') }}"  >
                                     @csrf
 
                                     @if (session('status'))

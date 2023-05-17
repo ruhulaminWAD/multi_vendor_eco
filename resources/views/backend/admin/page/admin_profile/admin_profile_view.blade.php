@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('backend.admin.layouts.master')
 
 {{-- Page Title --}}
 @section('page_title', 'Admin Profile')

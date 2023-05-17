@@ -399,7 +399,7 @@
                                 class="bx bx-user"></i><span>Profile</span></a>
                     </li>
                     <li><a class="dropdown-item" href="{{ route('admin.change.password') }}"><i class="bx bx-cog"></i><span>Change Password</span></a>
-                    <li><a class="dropdown-item" href="javascript:;"><i
+                    <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}"><i
                                 class='bx bx-home-circle'></i><span>Dashboard</span></a>
                     </li>
                     <li><a class="dropdown-item" href="javascript:;"><i
