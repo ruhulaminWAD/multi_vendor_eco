@@ -4,7 +4,7 @@
 <head>
 
     {{-- Head CSS Link Page --}}
-   @include('backend.vendor.layouts.include.head_css_link_page')
+   @include('backend.layouts.include.head_css_link_page')
 
    @stack('Backend_style')
     <title> @yield('page_title')</title>
@@ -14,10 +14,10 @@
     <!--wrapper-->
     <div class="wrapper">
         <!--sidebar wrapper -->
-        @include('backend.vendor.layouts.include.sidebar')
+        @include('backend.layouts.include.sidebar')
         <!--end sidebar wrapper -->
         <!--start header -->
-        @include('backend.vendor.layouts.include.header')
+        @include('backend.layouts.include.header')
         <!--end header -->
         <!--start page wrapper -->
         <div class="page-wrapper">
@@ -31,7 +31,7 @@
                 class='bx bxs-up-arrow-alt'></i></a>
         <!--End Back To Top Button-->
         <!--Footer Section-->
-        @include('backend.vendor.layouts.include.footer')
+        @include('backend.layouts.include.footer')
 
     </div>
     <!--end wrapper-->
@@ -136,7 +136,7 @@
     <!--end switcher-->
 
    {{-- java script Section --}}
-   @include('backend.vendor.layouts.include.js')
+   @include('backend.layouts.include.js')
    @stack('Backend_javaScript')
 
 </body>

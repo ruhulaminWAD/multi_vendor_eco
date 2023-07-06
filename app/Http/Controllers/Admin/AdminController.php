@@ -14,11 +14,11 @@ class AdminController extends Controller
 {
     public function AdminDashboard()
     {
-        return view('backend.admin.page.admin_profile.admin_dashboard');
+        return view('backend.page.admin_profile.admin_dashboard');
     } // End Method
 
     public function AdminLogin(){
-        return view('backend.admin.page.admin_profile.admin_login');
+        return view('backend.page.admin_profile.admin_login');
     } // End Mehtod
 
 
@@ -33,7 +33,7 @@ class AdminController extends Controller
 
         $id = Auth::user()->id;
         $adminData = User::find($id);
-        return view('backend.admin.page.admin_profile.admin_profile_view',compact('adminData'));
+        return view('backend.page.admin_profile.admin_profile_view',compact('adminData'));
 
     } // End Mehtod
 
@@ -69,7 +69,7 @@ class AdminController extends Controller
     } // End Mehtod
 
     public function AdminChangePassword(){
-        return view('backend.admin.page.admin_profile.admin_change_password');
+        return view('backend.page.admin_profile.admin_change_password');
     } // End Mehtod
 
     public function AdminUpdatePassword(Request $request){

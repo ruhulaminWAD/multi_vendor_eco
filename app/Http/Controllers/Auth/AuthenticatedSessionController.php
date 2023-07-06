@@ -28,17 +28,19 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $notification = array(
+            'message' => 'Login Successfully',
+            'alert-type' => 'success'
+        );
         $url = '';
         if ($request->user()->role === 'admin') {
             $url = 'admin/dashboard';
-        }elseif($request->user()->role === 'vendor'){
-            $url = 'vendor/dashboard';
-        } else {
+        }else {
             $url = '/dashboard';
         }
 
 
-        return redirect()->intended($url);
+        return redirect()->intended($url)->with($notification);
     }
 
     /**

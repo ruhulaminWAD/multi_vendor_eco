@@ -1,5 +1,5 @@
 
-@extends('backend.admin.layouts.master')
+@extends('backend.layouts.master')
 
 {{-- Page Title --}}
 @section('page_title', 'Dashboard')

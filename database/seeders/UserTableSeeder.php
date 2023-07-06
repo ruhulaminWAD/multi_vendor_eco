@@ -27,16 +27,6 @@ class UserTableSeeder extends Seeder
                 'status' => 'active',
             ],
 
-            // Vendor
-            [
-                'name' => 'Vendor',
-                'username' => 'vendor',
-                'email' => 'vendor@gmail.com',
-                'password' => Hash::make('12345678'),
-                'role' => 'vendor',
-                'status' => 'active',
-            ],
-
             // User Or Customer
             [
                 'name' => 'User',
