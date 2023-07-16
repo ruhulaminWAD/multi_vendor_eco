@@ -9,8 +9,8 @@ use App\Models\SubCategory;
 use App\Models\MultiImg;
 use App\Models\Brand;
 use App\Models\Product;
-use App\Models\User; 
- 
+use App\Models\User;
+
 class IndexController extends Controller
 {
 
@@ -34,11 +34,7 @@ class IndexController extends Controller
 
         return view('frontend.index',compact('skip_category_0','skip_product_0','skip_category_2','skip_product_2','skip_category_7','skip_product_7','hot_deals','special_offer','new','special_deals'));
 
-    } // End Method 
-
-
-
-
+    } // End Method
 
 
      public function ProductDetails($id,$slug){
@@ -58,7 +54,7 @@ class IndexController extends Controller
 
         return view('frontend.product.product_details',compact('product','product_color','product_size','multiImage','relatedProduct'));
 
-     } // End Method 
+     } // End Method
 
 
      public function VendorDetails($id){
@@ -67,7 +63,7 @@ class IndexController extends Controller
         $vproduct = Product::where('vendor_id',$id)->get();
         return view('frontend.vendor.vendor_details',compact('vendor','vproduct'));
 
-     } // End Method 
+     } // End Method
 
 
      public function VendorAll(){
@@ -75,7 +71,7 @@ class IndexController extends Controller
         $vendors = User::where('status','active')->where('role','vendor')->orderBy('id','DESC')->get();
         return view('frontend.vendor.vendor_all',compact('vendors'));
 
-     } // End Method 
+     } // End Method
 
 
      public function CatWiseProduct(Request $request,$id,$slug){
@@ -88,7 +84,7 @@ class IndexController extends Controller
 
       return view('frontend.product.category_view',compact('products','categories','breadcat','newProduct'));
 
-     }// End Method 
+     }// End Method
 
 
       public function SubCatWiseProduct(Request $request,$id,$slug){
@@ -101,7 +97,7 @@ class IndexController extends Controller
 
       return view('frontend.product.subcategory_view',compact('products','categories','breadsubcat','newProduct'));
 
-     }// End Method 
+     }// End Method
 
 
      public function ProductViewAjax($id){
@@ -121,7 +117,7 @@ class IndexController extends Controller
 
         ));
 
-     }// End Method 
+     }// End Method
 
 
      public function ProductSearch(Request $request){
@@ -134,7 +130,7 @@ class IndexController extends Controller
          $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
          return view('frontend.product.search',compact('products','item','categories','newProduct'));
 
-     }// End Method 
+     }// End Method
 
 
      public function SearchProduct(Request $request){
@@ -146,8 +142,7 @@ class IndexController extends Controller
 
         return view('frontend.product.search_product',compact('products'));
 
-     }// End Method 
+     }// End Method
 
 
 }
- 

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(RoleHasPermissionSeeder::class);
+        $this->call(SettingSeeder::class);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

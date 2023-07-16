@@ -2,12 +2,12 @@
 @section('main')
 
 @section('title')
-   Compare Page 
+   Compare Page
 @endsection
  <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                      <span></span> Compare
                 </div>
             </div>
@@ -21,10 +21,10 @@
                         <table class="table text-center table-compare">
 
                             <tbody id="compare">
-                                
-                               
+
+
                             </tbody>
-                            
+
                         </table>
                     </div>
                 </div>

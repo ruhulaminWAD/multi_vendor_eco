@@ -1,4 +1,4 @@
- 
+
      @php
 $setting = App\Models\SiteSetting::find(1);
         @endphp
@@ -104,7 +104,7 @@ $setting = App\Models\SiteSetting::find(1);
                     <div class="col">
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
                             <div class="logo mb-30">
-   <a href="index.html" class="mb-15"><img src="{{ asset($setting->logo ) }}" alt="logo" /></a>
+   <a href="/" class="mb-15"><img src="{{ asset($setting->logo ) }}" alt="logo" /></a>
                                 <p class="font-lg text-heading">Awesome grocery store website Ecommerce</p>
                             </div>
 <ul class="contact-infor">
@@ -163,7 +163,7 @@ $setting = App\Models\SiteSetting::find(1);
                             <li><a href="#">Cheese</a></li>
                         </ul>
                     </div>
-                  
+
                 </div>
         </section>
         <div class="container pb-30 wow animate__animated animate__fadeInUp" data-wow-delay="0">
@@ -175,7 +175,7 @@ $setting = App\Models\SiteSetting::find(1);
                     <p class="font-sm mb-0">&copy; 2022, <strong class="text-brand">Ecommerce</strong> -  {{ $setting->copyright }}</p>
                 </div>
                 <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
-                     
+
                     <div class="hotline d-lg-inline-flex">
                         <img src="{{ asset('frontend/assets/imgs/theme/icons/phone-call.svg') }}" alt="hotline" />
                         <p>{{ $setting->support_phone }}<span>24/7 Support Center</span></p>
