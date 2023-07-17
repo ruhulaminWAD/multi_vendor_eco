@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleHasPermissionSeeder::class);
         $this->call(SettingSeeder::class);
 
+        $this->call(ShipDivisionSeeder::class);
+        $this->call(ShipDistrictSeeder::class);
+        $this->call(ShipStateSeeder::class);
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

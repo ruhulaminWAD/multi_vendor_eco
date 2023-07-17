@@ -328,7 +328,7 @@
                                 @php
 
                                     $categories = App\Models\Category::orderBy('category_name', 'ASC')
-                                        ->limit(6)
+                                        ->limit(4)
                                         ->get();
                                 @endphp
 
