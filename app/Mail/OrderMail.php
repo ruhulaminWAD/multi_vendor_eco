@@ -12,7 +12,7 @@ class OrderMail extends Mailable
     use Queueable, SerializesModels;
     public $data;
 
-    /** 
+    /**
      * Create a new message instance.
      *
      * @return void
@@ -30,6 +30,6 @@ class OrderMail extends Mailable
     public function build()
     {
         $order = $this->data;
-        return $this->from('support@easylearningbd.com')->view('mail.order_mail',compact('order'))->subject('Email From Easy Multi Vendor Shop');
+        return $this->from('febula@example.com')->view('mail.order_mail',compact('order'))->subject('Email From Febula Multi Vendor Shop');
     }
 }

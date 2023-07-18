@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
-use App\Models\OrderItem; 
+use App\Models\OrderItem;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
@@ -15,7 +15,7 @@ use App\Mail\OrderMail;
 use App\Models\User;
 use App\Notifications\OrderComplete;
 use Illuminate\Support\Facades\Notification;
- 
+
 class StripeController extends Controller
 {
     public function StripeOrder(Request $request){
@@ -28,7 +28,7 @@ class StripeController extends Controller
 
         \Stripe\Stripe::setApiKey('sk_test_51IUTWzALc6pn5BvMjaRW9STAvY4pLiq1dNViHoh5KtqJc9Bx7d4WKlCcEdHOJdg3gCcC2F19cDxUmCBJekGSZXte00RN2Fc4vm');
 
- 
+
         $token = $_POST['stripeToken'];
 
         $charge = \Stripe\Charge::create([
@@ -63,9 +63,9 @@ class StripeController extends Controller
             'invoice_no' => 'EOS'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),
-            'order_year' => Carbon::now()->format('Y'), 
+            'order_year' => Carbon::now()->format('Y'),
             'status' => 'pending',
-            'created_at' => Carbon::now(),  
+            'created_at' => Carbon::now(),
 
         ]);
 
@@ -82,9 +82,9 @@ class StripeController extends Controller
 
         ];
 
-        Mail::to($request->email)->send(new OrderMail($data));
+        // Mail::to($request->email)->send(new OrderMail($data));
 
-        // End Send Email 
+        // End Send Email
 
 
         $carts = Cart::content();
@@ -115,11 +115,11 @@ class StripeController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('dashboard')->with($notification); 
+        return redirect()->route('dashboard')->with($notification);
 
 
 
-    }// End Method 
+    }// End Method
 
 
 
@@ -134,7 +134,7 @@ class StripeController extends Controller
             $total_amount = round(Cart::total());
         }
 
-        
+
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
             'division_id' => $request->division_id,
@@ -149,17 +149,17 @@ class StripeController extends Controller
 
             'payment_type' => 'Cash On Delivery',
             'payment_method' => 'Cash On Delivery',
-            
+
             'currency' => 'Usd',
             'amount' => $total_amount,
-            
+
 
             'invoice_no' => 'EOS'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),
-            'order_year' => Carbon::now()->format('Y'), 
+            'order_year' => Carbon::now()->format('Y'),
             'status' => 'pending',
-            'created_at' => Carbon::now(),  
+            'created_at' => Carbon::now(),
 
         ]);
 
@@ -178,15 +178,15 @@ class StripeController extends Controller
 
         ];
 
-        Mail::to($request->email)->send(new OrderMail($data));
+        // Mail::to($request->email)->send(new OrderMail($data));
 
-        // End Send Email 
+        // End Send Email
 
 
 
         $carts = Cart::content();
         foreach($carts as $cart){
-            
+
             OrderItem::insert([
                 'order_id' => $order_id,
                 'product_id' => $cart->id,
@@ -213,13 +213,12 @@ class StripeController extends Controller
         );
 
         Notification::send($user, new OrderComplete($request->name));
-        return redirect()->route('dashboard')->with($notification); 
+        return redirect()->route('dashboard')->with($notification);
 
 
 
-    }// End Method 
+    }// End Method
 
 
 
 }
- 
