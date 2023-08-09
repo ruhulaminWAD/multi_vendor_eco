@@ -1,3 +1,22 @@
+@php
+
+    $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
+@endphp
+
+<style>
+    .searchProductsCss {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 999;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+</style>
+
+
 <!-- Header  -->
 <header class="header-area header-style-1 header-height-2">
     <div class="mobile-promotion">
@@ -78,20 +97,13 @@
 
                             <select class="select-active">
                                 <option>All Categories</option>
-                                <option>Milks and Dairies</option>
-                                <option>Wines & Alcohol</option>
-                                <option>Clothing & Beauty</option>
-                                <option>Pet Foods & Toy</option>
-                                <option>Fast food</option>
-                                <option>Baking material</option>
-                                <option>Vegetables</option>
-                                <option>Fresh Seafood</option>
-                                <option>Noodles & Rice</option>
-                                <option>Ice cream</option>
+                                @foreach ($categories as $categorie)
+                                    <option> {{ $categorie->category_name ?? '' }}</option>
+                                @endforeach
                             </select>
                             <input onfocus="search_result_show()" onblur="search_result_hide()" name="search"
                                 id="search" placeholder="Search for items..." />
-                            <div id="searchProducts"></div>
+                            <div class="searchProductsCss" id="searchProducts"></div>
                         </form>
                     </div>
 
@@ -219,10 +231,7 @@
     </div>
 
 
-    @php
 
-        $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
-    @endphp
 
 
     <div class="header-bottom header-bottom-bg-color sticky-bar">
@@ -427,29 +436,8 @@
 </header>
 
 <!-- End Header  -->
-<style>
-    #searchProducts {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        z-index: 999;
-        border-radius: 8px;
-        margin-top: 5px;
-    }
-</style>
 
-<script>
-    function search_result_show() {
-        $("#searchProducts").slideDown();
 
-    }
-
-    function search_result_hide() {
-        $("#searchProducts").slideUp();
-    }
-</script>
 
 
 <div class="mobile-header-active mobile-header-wrapper-style">
@@ -467,9 +455,19 @@
         </div>
         <div class="mobile-header-content-area">
             <div class="mobile-search search-style-3 mobile-header-border">
-                <form action="#">
+                {{-- <form action="#">
                     <input type="text" placeholder="Search for items…" />
                     <button type="submit"><i class="fi-rs-search"></i></button>
+                </form> --}}
+
+                <form action="{{ route('product.search') }}" method="post">
+                    @csrf
+
+                    <input onfocus="mobile_search_result_show()" onblur="mobile_search_result_hide()" name="search"
+                        id="searchMobile" placeholder="Search for items..." />
+
+                        <button type="submit"><i class="fi-rs-search"></i></button>
+                    <div class="searchProductsCss"  id="searchProductsMobile"></div>
                 </form>
             </div>
 
@@ -582,3 +580,26 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function search_result_show() {
+        $("#searchProducts").slideDown();
+
+    }
+
+    function search_result_hide() {
+        $("#searchProducts").slideUp();
+    }
+</script>
+{{-- Mobile --}}
+<script>
+    function mobile_search_result_show() {
+        $("#searchProductsMobile").slideDown();
+
+    }
+
+    function mobile_search_result_hide() {
+        $("#searchProductsMobile").slideUp();
+    }
+</script>
