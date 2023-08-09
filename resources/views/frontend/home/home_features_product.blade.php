@@ -132,9 +132,14 @@
                                                 </div>
 
                                             </div>
-                                            <a href="shop-cart.html" class="btn w-100 hover-up"><i
+                                            <a aria-label="Quick view" class="btn w-100 hover-up Quick view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal" id="{{ $product->id }}"
+                                            onclick="productView(this.id)"><i
                                                     class="fi-rs-shopping-cart mr-5"></i>Add To Cart</a>
                                         </div>
+
+                                        
+
                                     </div>
                                     <!--End product Wrap-->
                                 @endforeach

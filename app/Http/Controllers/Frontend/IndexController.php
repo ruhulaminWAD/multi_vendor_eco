@@ -75,7 +75,7 @@ class IndexController extends Controller
 
 
      public function CatWiseProduct(Request $request,$id,$slug){
-      $products = Product::where('status',1)->where('category_id',$id)->orderBy('id','DESC')->get();
+      $products = Product::where('status',1)->where('category_id',$id)->orderBy('id','DESC')->latest()->paginate(10);
       $categories = Category::orderBy('category_name','ASC')->get();
 
       $breadcat = Category::where('id',$id)->first();
@@ -88,7 +88,7 @@ class IndexController extends Controller
 
 
       public function SubCatWiseProduct(Request $request,$id,$slug){
-      $products = Product::where('status',1)->where('subcategory_id',$id)->orderBy('id','DESC')->get();
+      $products = Product::where('status',1)->where('subcategory_id',$id)->orderBy('id','DESC')->latest()->paginate(10);
       $categories = Category::orderBy('category_name','ASC')->get();
 
       $breadsubcat = SubCategory::where('id',$id)->first();
@@ -126,7 +126,7 @@ class IndexController extends Controller
 
          $item = $request->search;
          $categories = Category::orderBy('category_name','ASC')->get();
-         $products = Product::where('product_name','LIKE',"%$item%")->get();
+         $products = Product::where('product_name','LIKE',"%$item%")->latest()->paginate(15);
          $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
          return view('frontend.product.search',compact('products','item','categories','newProduct'));
 

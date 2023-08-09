@@ -313,7 +313,7 @@ input[type=number]:focus,
 }
 
 .text-brand {
-  color: #3BB77E !important;
+  color: #8C71DB !important;
 }
 
 .text-brand-2 {
@@ -2017,8 +2017,8 @@ input.qty-val {
 }
 
 .dot-style-1 ul li.slick-active button {
-  background: #3BB77E;
-  border-color: #3BB77E;
+  background: #3577F0;
+  border-color: #3577F0;
 }
 
 .dot-style-1.dot-style-1-position-1 ul {
@@ -2088,9 +2088,9 @@ input.qty-val {
 }
 
 .slider-arrow .slider-btn:hover {
-  background-color: #3BB77E;
+  background-color: #8C71DB;
   color: #fff;
-  border-color: #3BB77E;
+  border-color: #8C71DB;
 }
 
 .slider-arrow.slider-arrow-2 .slider-btn {
@@ -4154,7 +4154,7 @@ table .product-thumbnail img {
 }
 
 .product-cart-wrap .product-badges span.hot {
-  background-color: #F8621E;
+  background-color: #3577F0;
 }
 
 .product-cart-wrap .product-badges span.new {
@@ -5128,7 +5128,7 @@ table .product-thumbnail img {
 .detail-extralink .detail-qty {
   margin: 0 6px 15px 0;
   background: #fff;
-  border: 2px solid #3BB77E !important;
+  border: 2px solid #3577F0 !important;
   font-size: 16px;
   font-weight: 700;
   color: #3BB77E;
@@ -5192,7 +5192,7 @@ table .product-thumbnail img {
 
 .detail-info .product-price .old-price {
   text-decoration: line-through;
-  color: #B6B6B6;
+  color: #8C71DB;
   margin-left: 20px;
   font-size: 28px;
   font-weight: 700;
@@ -5726,7 +5726,7 @@ table.no-border td, table.no-border th, table.no-border thead {
 .archive-header {
   background: url(../imgs/blog/header-bg.png) no-repeat center center;
   border-radius: 20px;
-  padding: 70px 80px;
+  padding: 20px 80px;
   background-size: cover;
 }
 
@@ -8363,7 +8363,7 @@ h6.post-title {
 }
 
 .header-style-1 .search-style-2 form {
-  border: 2px solid #BCE3C9;
+  border: 2px solid #3577F0;
   border-radius: 4px;
   max-width: 700px;
   background-color: #fff;
@@ -9174,7 +9174,7 @@ span.fi-rs-apps {
 
 .pagination-area .page-item.active .page-link, .pagination-area .page-item:hover .page-link {
   color: #fff;
-  background: #3BB77E;
+  background: #3577F0;
 }
 
 .pagination-area .page-item:last-child .page-link {

@@ -9,15 +9,10 @@
 <div class="page-header mt-30 mb-50">
     <div class="container">
         <div class="archive-header">
-            <div class="row align-items-center">
-                <div class="col-xl-3">
-                    <h5 class="mb-15">{{ $breadcat->category_name }}</h5>
-                    <div class="breadcrumb">
-                        <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                        <span></span> {{ $breadcat->category_name }}
-                    </div>
-                </div>
-
+            <h5 class="mb-15">{{ $breadcat->category_name }}</h5>
+            <div class="breadcrumb">
+                <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> {{ $breadcat->category_name }}
             </div>
         </div>
     </div>
@@ -173,20 +168,10 @@
 
             </div>
             <!--product grid-->
-            <div class="pagination-area mt-20 mb-20">
-                <nav aria-label="Page navigation example">
+            <div class="pagination-area mt-20 mb-20 d-flex justify-content-center">
+                <nav aria-label="Page navigation example ">
                     <ul class="pagination justify-content-start">
-                        <li class="page-item">
-                            <a class="page-link" href="#"><i class="fi-rs-arrow-small-left"></i></a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#"><i class="fi-rs-arrow-small-right"></i></a>
-                        </li>
+                        {{ $products->links('pagination::bootstrap-4') }}
                     </ul>
                 </nav>
             </div>

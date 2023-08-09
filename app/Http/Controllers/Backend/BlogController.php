@@ -212,7 +212,7 @@ class BlogController extends Controller
 
     public function AllBlog(){
         $blogcategoryies = BlogCategory::latest()->get();
-        $blogpost = BlogPost::latest()->get();
+        $blogpost = BlogPost::latest()->latest()->paginate(1);
         return view('frontend.blog.home_blog',compact('blogcategoryies','blogpost'));
     }// End Method
 
@@ -228,7 +228,7 @@ class BlogController extends Controller
     public function BlogPostCategory($id,$slug){
 
         $blogcategoryies = BlogCategory::latest()->get();
-        $blogpost = BlogPost::where('category_id',$id)->get();
+        $blogpost = BlogPost::where('category_id',$id)->latest()->paginate(3);
         $breadcat = BlogCategory::where('id',$id)->get();
         return view('frontend.blog.category_post',compact('blogcategoryies','blogpost','breadcat'));
 

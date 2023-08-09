@@ -154,8 +154,10 @@
 
 
                                         <div class="add-cart">
-                                            <a class="add" href="shop-cart.html"><i
-                                                    class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            <a aria-label="Quick view" class="add Quick view" data-bs-toggle="modal"
+                                                 data-bs-target="#quickViewModal" id="{{ $product->id }}"
+                                                 onclick="productView(this.id)"><i
+                                                         class="fi-rs-shopping-cart mr-5"></i>Add </a>
                                         </div>
                                     </div>
                                 </div>
@@ -286,8 +288,10 @@
 
 
                                         <div class="add-cart">
-                                            <a class="add" href="shop-cart.html"><i
-                                                    class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            <a aria-label="Quick view" class="add Quick view" data-bs-toggle="modal"
+                                                 data-bs-target="#quickViewModal" id="{{ $product->id }}"
+                                                 onclick="productView(this.id)"><i
+                                                         class="fi-rs-shopping-cart mr-5"></i>Add </a>
                                         </div>
                                     </div>
                                 </div>
@@ -420,8 +424,10 @@
 
 
                                         <div class="add-cart">
-                                            <a class="add" href="shop-cart.html"><i
-                                                    class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            <a aria-label="Quick view" class="add Quick view" data-bs-toggle="modal"
+                                                 data-bs-target="#quickViewModal" id="{{ $product->id }}"
+                                                 onclick="productView(this.id)"><i
+                                                         class="fi-rs-shopping-cart mr-5"></i>Add </a>
                                         </div>
                                     </div>
                                 </div>

@@ -10,9 +10,9 @@
                     <div class="header-info">
                         <ul>
 
-                            <li><a href="page-account.html">My Cart</a></li>
-                            <li><a href="shop-wishlist.html">Checkout</a></li>
-                            <li><a href="shop-order.html">Order Tracking</a></li>
+                            <li><a href="{{ route('mycart') }}">My Cart</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="{{ route('user.track.order') }}">Order Tracking</a></li>
                         </ul>
                     </div>
                 </div>
@@ -94,6 +94,7 @@
                             <div id="searchProducts"></div>
                         </form>
                     </div>
+
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="search-location">
@@ -134,9 +135,6 @@
                                 <a href="{{ route('wishlist') }}"><span class="lable">Wishlist</span></a>
                             </div>
 
-
-
-
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="shop-cart.html">
                                     <img alt="Nest"
@@ -146,7 +144,6 @@
                                 <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
 
-
                                     <!--   // mini cart start with ajax -->
                                     <div id="miniCart">
 
@@ -154,26 +151,17 @@
 
                                     <!--   // End mini cart start with ajax -->
 
-
-
-
-
                                     <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">
                                             <h4>Total <span id="cartSubTotal"> </span></h4>
                                         </div>
                                         <div class="shopping-cart-button">
-                                            <a href="shop-cart.html" class="outline">View cart</a>
-                                            <a href="shop-checkout.html">Checkout</a>
+                                            <a href="{{ route('mycart') }}" class="outline">View cart</a>
+                                            <a href="{{ route('checkout') }}">Checkout</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
 
                             <div class="header-action-icon-2">
                                 <a href="page-account.html">
@@ -181,9 +169,8 @@
                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-user.svg') }}" />
                                 </a>
 
-
                                 @auth
-                                    <a href="page-account.html"><span class="lable ml-0">Account</span></a>
+                                    <a href="{{ route('dashboard') }}"><span class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
                                             <li>
@@ -191,7 +178,7 @@
                                                     Account</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('dashboard') }}"><i
+                                                <a href="{{ route('user.track.order') }}"><i
                                                         class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
                                             </li>
                                             <li>
@@ -199,7 +186,7 @@
                                                     Voucher</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('dashboard') }}"><i class="fi fi-rs-heart mr-10"></i>My
+                                                <a href="{{ route('wishlist') }}"><i class="fi fi-rs-heart mr-10"></i>My
                                                     Wishlist</a>
                                             </li>
                                             <li>
@@ -222,19 +209,14 @@
 
                                 @endauth
 
-
-
-
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-
-
-
 
 
     @php
@@ -247,9 +229,9 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="/"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}"
-                            alt="logo" /></a>
+                    <a href="/"><img src="{{ asset($setting->logo) ?? '' }}" alt="logo" /></a>
                 </div>
+
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
                         <a class="categories-button-active" href="#">
@@ -264,7 +246,8 @@
                                             <li>
                                                 <a
                                                     href="{{ url('product/category/' . $item->id . '/' . $item->category_slug) ?? '' }}">
-                                                    <img src="{{ asset($item->category_image) ?? '' }}" alt="" />
+                                                    <img src="{{ asset($item->category_image) ?? '' }}"
+                                                        alt="" />
                                                     {{ $item->category_name ?? '' }} </a>
                                             </li>
                                         @endif
@@ -316,17 +299,16 @@
                                     more...</span></div>
                         </div>
                     </div>
+
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
                             <ul>
-
                                 <li>
                                     <a class="active" href="{{ url('/') }}">Home </a>
 
                                 </li>
 
                                 @php
-
                                     $categories = App\Models\Category::orderBy('category_name', 'ASC')
                                         ->limit(4)
                                         ->get();
@@ -365,6 +347,7 @@
                             </ul>
                         </nav>
                     </div>
+
                 </div>
 
 
@@ -379,6 +362,7 @@
                         <span class="burger-icon-bottom"></span>
                     </div>
                 </div>
+
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
                         <div class="header-action-icon-2">
@@ -428,14 +412,15 @@
                                         <h4>Total <span>$383.00</span></h4>
                                     </div>
                                     <div class="shopping-cart-button">
-                                        <a href="shop-cart.html">View cart</a>
-                                        <a href="shop-checkout.html">Checkout</a>
+                                        <a href="#">View cart</a>
+                                        <a href="#">Checkout</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -471,8 +456,7 @@
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
-                <a href="/"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}"
-                        alt="logo" /></a>
+                <a href="/"><img src="{{ asset($setting->logo) ?? '' }}" alt="logo" /></a>
             </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
@@ -488,6 +472,8 @@
                     <button type="submit"><i class="fi-rs-search"></i></button>
                 </form>
             </div>
+
+
             <div class="mobile-menu-wrap mobile-header-border">
                 <!-- mobile menu start -->
                 <nav>
@@ -496,75 +482,39 @@
                             <a href="/">Home</a>
 
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="shop-grid-right.html">shop</a>
-                            <ul class="dropdown">
-                                <li><a href="shop-grid-right.html">Shop Grid – Right Sidebar</a></li>
-                                <li><a href="shop-grid-left.html">Shop Grid – Left Sidebar</a></li>
-                                <li><a href="shop-list-right.html">Shop List – Right Sidebar</a></li>
-                                <li><a href="shop-list-left.html">Shop List – Left Sidebar</a></li>
-                                <li><a href="shop-fullwidth.html">Shop - Wide</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Single Product</a>
-                                    <ul class="dropdown">
-                                        <li><a href="shop-product-right.html">Product – Right Sidebar</a></li>
-                                        <li><a href="shop-product-left.html">Product – Left Sidebar</a></li>
-                                        <li><a href="shop-product-full.html">Product – No sidebar</a></li>
-                                        <li><a href="shop-product-vendor.html">Product – Vendor Infor</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="shop-filter.html">Shop – Filter</a></li>
-                                <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
-                                <li><a href="shop-cart.html">Shop – Cart</a></li>
-                                <li><a href="shop-checkout.html">Shop – Checkout</a></li>
-                                <li><a href="shop-compare.html">Shop – Compare</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Shop Invoice</a>
-                                    <ul class="dropdown">
-                                        <li><a href="shop-invoice-1.html">Shop Invoice 1</a></li>
-                                        <li><a href="shop-invoice-2.html">Shop Invoice 2</a></li>
-                                        <li><a href="shop-invoice-3.html">Shop Invoice 3</a></li>
-                                        <li><a href="shop-invoice-4.html">Shop Invoice 4</a></li>
-                                        <li><a href="shop-invoice-5.html">Shop Invoice 5</a></li>
-                                        <li><a href="shop-invoice-6.html">Shop Invoice 6</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        @php
+                            $all_categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
+                        @endphp
+                        @foreach ($all_categories as $item)
+                            <li class="menu-item-has-children">
+                                <a href="#">{{ $item->category_name }}</a>
+                                <ul class="dropdown">
+                                    @php
+                                        $subcategories = App\Models\SubCategory::where('category_id', $category->id)
+                                            ->orderBy('subcategory_name', 'ASC')
+                                            ->get();
+                                    @endphp
 
-                        <li class="menu-item-has-children">
-                            <a href="#">Mega menu</a>
-                            <ul class="dropdown">
-                                <li class="menu-item-has-children">
-                                    <a href="#">Women's Fashion</a>
-                                    <ul class="dropdown">
-                                        <li><a href="shop-product-right.html">Dresses</a></li>
-                                        <li><a href="shop-product-right.html">Blouses & Shirts</a></li>
-                                        <li><a href="shop-product-right.html">Hoodies & Sweatshirts</a></li>
-                                        <li><a href="shop-product-right.html">Women's Sets</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Men's Fashion</a>
-                                    <ul class="dropdown">
-                                        <li><a href="shop-product-right.html">Jackets</a></li>
-                                        <li><a href="shop-product-right.html">Casual Faux Leather</a></li>
-                                        <li><a href="shop-product-right.html">Genuine Leather</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Technology</a>
-                                    <ul class="dropdown">
-                                        <li><a href="shop-product-right.html">Gaming Laptops</a></li>
-                                        <li><a href="shop-product-right.html">Ultraslim Laptops</a></li>
-                                        <li><a href="shop-product-right.html">Tablets</a></li>
-                                        <li><a href="shop-product-right.html">Laptop Accessories</a></li>
-                                        <li><a href="shop-product-right.html">Tablet Accessories</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
+                                    @foreach ($subcategories as $subcategory)
+                                        <li class="menu-item-has-children">
+                                            <a
+                                                href="{{ url('product/subcategory/' . $subcategory->id . '/' . $subcategory->subcategory_slug) ?? '' }}">{{ $subcategory->subcategory_name ?? '' }}</a>
+                                            {{-- <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Dresses</a></li>
+                                            <li><a href="shop-product-right.html">Blouses & Shirts</a></li>
+                                            <li><a href="shop-product-right.html">Hoodies & Sweatshirts</a></li>
+                                            <li><a href="shop-product-right.html">Women's Sets</a></li>
+                                        </ul> --}}
+                                        </li>
+                                    @endforeach
+
+
+
+                                </ul>
+                            </li>
+                        @endforeach
+
+                        {{-- <li class="menu-item-has-children">
                             <a href="blog-category-fullwidth.html">Blog</a>
                             <ul class="dropdown">
                                 <li><a href="blog-category-grid.html">Blog Category Grid</a></li>
@@ -580,24 +530,18 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
+
                         <li class="menu-item-has-children">
-                            <a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="page-about.html">About Us</a></li>
-                                <li><a href="page-contact.html">Contact</a></li>
-                                <li><a href="page-account.html">My Account</a></li>
-                                <li><a href="page-login.html">Login</a></li>
-                                <li><a href="page-register.html">Register</a></li>
-                                <li><a href="page-forgot-password.html">Forgot password</a></li>
-                                <li><a href="page-reset-password.html">Reset password</a></li>
-                                <li><a href="page-purchase-guide.html">Purchase Guide</a></li>
-                                <li><a href="page-privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="page-terms.html">Terms of Service</a></li>
-                                <li><a href="page-404.html">404 Page</a></li>
-                            </ul>
+                            <a href="{{ route('shop.page') }}">shop</a>
+
                         </li>
+
                         <li class="menu-item-has-children">
+                            <a href="{{ route('home.blog') }}">Blog</a>
+
+                        </li>
+                        {{-- <li class="menu-item-has-children">
                             <a href="#">Language</a>
                             <ul class="dropdown">
                                 <li><a href="#">English</a></li>
@@ -605,7 +549,7 @@
                                 <li><a href="#">German</a></li>
                                 <li><a href="#">Spanish</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
                 <!-- mobile menu end -->
